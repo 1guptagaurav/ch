@@ -1,0 +1,93 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f8f9fa;
+    color: #1f2937;
+    line-height: 1.5;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.header { margin-bottom: 32px; }
+.header-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.header h1 { font-size: 24px; font-weight: 700; }
+.subtitle { color: #6b7280; font-size: 16px; }
+
+.view-dashboard-btn, .view-all-btn {
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    color: #1f2937;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.view-dashboard-btn:hover, .view-all-btn:hover { background: #f3f4f6; }
+
+.status-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.status-card, .task-form-card {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s;
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.card-title { font-size: 14px; font-weight: 500; color: #6b7280; }
+.card-count { font-size: 32px; font-weight: 700; }
+
+.add-btn {
+    width: 24px; height: 24px;
+    border: none; border-radius: 50%;
+    color: white; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+}
+.today-btn { background: #3b82f6; } .today-btn:hover { background: #2563eb; }
+.progress-btn { background: #eab308; } .progress-btn:hover { background: #ca8a04; }
+.completed-btn { background: #22c55e; } .completed-btn:hover { background: #16a34a; }
+
+.create-task-toggle {
+    display: flex; align-items: center; gap: 8px;
+    background: transparent; border: none;
+    color: #1f2937; font-size: 16px; font-weight: 500;
+    cursor: pointer; transition: color 0.2s;
+    width: 100%; text-align: left;
+}
+
+.task-form-content {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.task-form-content.expanded { max-height: 1000px; margin-top: 24px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 8px 12px;
+    border: 1px solid #d1d5db; border-radius: 6px;
+    font-size: 14px; background: white;
+    transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+.form-group textarea { min-height: 80px; resize: vertical; }
+
+.form-actions { display: flex; gap: 12px; margin-top: 24px; }
+.create-btn {
+    padding: 10px 20px; background: #1f2937; color: white;
+    border: none; border-radius: 6px; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: background 0.2s;
+} 

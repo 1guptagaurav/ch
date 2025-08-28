@@ -1,0 +1,162 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+
+<!-- This is a reconstruction of your friend's complete dashboard HTML -->
+<app-navbar></app-navbar>
+
+<!-- Top Carousel/Hero Section -->
+<div id="autoCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3000">
+            <img src="assets/svg/Rectangle_carousel.svg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="assets/svg/Rectangle_carousel.svg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="assets/svg/Rectangle_carousel.svg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+</div>
+
+<div class="main-div container-fluid">
+    <div class="container text-center top-card">
+        <div class="row">
+            <!-- Card 1: My Goals -->
+            <div class="col">
+                <div class="card custom-rounded-card card-1">
+                    <div class="card-body d-flex justify-content-between align-items-left position-relative">
+                        <!-- Left Content -->
+                        <div class="content-left">
+                            <p class="card-text ml-0">My Goals</p>
+                            <h1 class="card-title ml-0 pl-0">3</h1>
+                            <a href="#" class="card-subtitle text-muted ml-0 pl-auto">View All</a>
+                        </div>
+                        <!-- Right Watermark -->
+                        <div class="watermark-right">
+                            <i class="fas fa-star watermark-icon"></i>
+                            <!-- Or use text watermark -->
+                            <span class="watermark-text">PREMIUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2: Enrolled Courses -->
+            <div class="col">
+                <div class="card custom-rounded-card card-2">
+                    <div class="card-body d-flex justify-content-between align-items-left position-relative">
+                        <div class="content-left">
+                            <p class="card-text ml-0">Enrolled Courses</p>
+                            <h1 class="card-title ml-0 pl-0">8</h1>
+                            <a href="#" class="card-subtitle text-muted ml-0">View All</a>
+                        </div>
+                        <div class="watermark-right">
+                            <i class="fas fa-star watermark-icon"></i>
+                            <span class="watermark-text">PREMIUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3: Certificates Earned -->
+            <div class="col">
+                <div class="card custom-rounded-card card-3">
+                    <div class="card-body d-flex justify-content-between align-items-left position-relative">
+                        <div class="content-left">
+                            <p class="card-text ml-0">Certificates Earned</p>
+                            <h1 class="card-title ml-0 pl-0">2</h1>
+                            <a href="#" class="card-subtitle text-muted ml-0">Download</a>
+                        </div>
+                        <div class="watermark-right">
+                            <i class="fas fa-star watermark-icon"></i>
+                            <span class="watermark-text">PREMIUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Last Viewed Courses Carousel -->
+    @if (lastViewedCarousel && lastViewedCarousel.items.length > 0) {
+    <div class="container-fluid">
+        <h4 class="first-heading">Last Viewed Courses</h4>
+        <div class="container-fluid carousel-container">
+            <div class="row align-items-center carousel-row">
+                <div class="col-12">
+                    <div class="cards-viewport">
+                        <div class="cards-track" [style.transform]="'translateX(' + lastViewedCarousel.translateX + 'rem)'">
+                            @for (course of lastViewedCarousel.items; track course.title) {
+                            <div class="card-wrapper">
+                                <app-course-card [course]="course"></app-course-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <!-- Fixed Position Buttons -->
+                <button class="nav-button prev-button" (click)="lastViewedCarousel.previousSlide()" [disabled]="!lastViewedCarousel.canGoPrevious">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-button next-button" (click)="lastViewedCarousel.nextSlide()" [disabled]="!lastViewedCarousel.canGoNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+
+    <!-- Newly Updated Carousel -->
+    @if (newlyUpdatedCarousel && newlyUpdatedCarousel.items.length > 0) {
+    <div class="container-fluid">
+        <h4 class="next-heading">Newly Updated</h4>
+        <div class="container-fluid carousel-container">
+            <div class="row align-items-center carousel-row">
+                <div class="col-12">
+                    <div class="cards-viewport">
+                        <div class="cards-track" [style.transform]="'translateX(' + newlyUpdatedCarousel.translateX + 'rem)'">
+                            @for (course of newlyUpdatedCarousel.items; track course.title) {
+                            <div class="card-wrapper">
+                                <app-course-card [course]="course"></app-course-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-button prev-button" (click)="newlyUpdatedCarousel.previousSlide()" [disabled]="!newlyUpdatedCarousel.canGoPrevious">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-button next-button" (click)="newlyUpdatedCarousel.nextSlide()" [disabled]="!newlyUpdatedCarousel.canGoNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+
+    <!-- Blog Carousel -->
+    @if (blogCarousel && blogCarousel.items.length > 0) {
+    <div class="container-fluid">
+        <h4 class="next-heading">Blog</h4>
+        <div class="container-fluid carousel-container">
+            <div class="row align-items-center carousel-row">
+                <div class="col-12">
+                    <div class="cards-viewport">
+                        <div class="cards-track" [style.transform]="'translateX(' + blogCarousel.translateX + 'rem)'">
+                            @for (blog of blogCarousel.items; track blog.title) {
+                            <div class="card-wrapper">
+                                <app-blog-card [blog]="blog"></app-blog-card>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-button prev-button" (click)="blogCarousel.previousSlide()" [disabled]="!blogCarousel.canGoPrevious">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-button next-button" (click)="blogCarousel.nextSlide()" [disabled]="!blogCarousel.canGoNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+</div>

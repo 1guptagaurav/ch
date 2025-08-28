@@ -1,0 +1,30 @@
+<!-- src/app/shared/course-card/course-card.component.html -->
+
+@if(course) {
+<div class="card" style="width: 17rem;">
+    <img [src]="course.thumbnailUrl" class="card-img-top" [alt]="course.title">
+    <div class="card-body pb-0">
+        <h5 class="card-title">{{ course.title }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <a [href]="">
+                <img [src]="course.provider.logoUrl" alt="">
+            </a>
+        </li>
+        <li class="list-group-item">
+            <div class="inline-box rating">{{ course.rating }}</div>
+            <div class="inline-box star"><img src="assets/svg/star4.svg" alt=""></div>
+            <div class="inline-box reviewCount">{{ course.reviewCount }} reviews</div>
+            <div class="inline-box enrollmentCount">{{ course.enrollmentCount }} Enrolled</div>
+        </li>
+        <li class="list-group-item">
+            <div class="inline-container">
+                <div class="inline-box">{{ course.difficulty }}</div>
+                <div class="inline-box">.</div>
+                <div class="inline-box">{{ course.durationText }}</div>
+            </div>
+        </li>
+    </ul>
+</div>
+}

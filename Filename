@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ps-3 custom-navbar">
+  <div class="container-fluid d-flex justify-content-between">
+    
+    <!-- Brand -->
+    <div class="navbar-brand d-flex align-items-center">
+      <span class="brand-title">Product Name</span>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="flex-grow-1 d-flex justify-content-center" style="max-width:700px;">
+      <div class="position-relative w-100">
+        <span class="position-absolute top-50 start-0 translate-middle-y ps-3">
+          <img src="assets/svg/Search.svg" alt="search-icon">
+        </span>
+        <input class="form-control ps-5 search-box" 
+               type="search" 
+               placeholder="Search" 
+               aria-label="Search" 
+               id="searchInput" />
+        <span class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor:pointer;"
+              onclick="document.getElementById('searchInput').value=''">
+          <img src="assets/svg/x.svg" alt="clear-icon">
+        </span>
+      </div>
+    </div>
+
+    <!-- Toggle + Icons -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+      <ul class="navbar-nav d-flex flex-row align-items-center gap-3">
+        <li class="nav-item">
+          <a class="btn btn-light text-center" href="#">
+            <img src="assets/svg/Vector.svg" alt="icon">
+          </a>
+        </li>
+        <li class="nav-item">
+          <img class="profile-pic" src="{{avatarUrl}}" alt="avatar">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+nav.custom-navbar {
+  background: #2A2C38 !important;
+  border-radius: 0 !important;
+  height: 80px;
+}
+
+.custom-input {
+  background: #2A2C38 !important;
+  color: #E4E4E4;
+  width: 100%;
+  min-width: 200px;
+}
+
+.search-box {
+  color: #E4E4E4;
+}
+
+.search-box::placeholder,
+.search-box::-webkit-input-placeholder,
+.search-box::-ms-input-placeholder {
+  color: #E4E4E4;
+  font-size: 14px;
+  opacity: 1;
+}
+
+.brand-title {
+  color: #6A958F;
+  font-size: 1.5rem;
+}
+
+.search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.search-box[type="search"]::-ms-clear {
+  display: none;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.btn-custom {
+  background: #2A2C38 !important;
+  border: none;
+}
